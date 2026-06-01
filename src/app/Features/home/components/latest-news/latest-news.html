@@ -1,0 +1,42 @@
+<section class="news-section">
+  <div class="news-container">
+
+    <!-- Header -->
+    <div class="news-header">
+      <h2 class="news-title">Our Latest News</h2>
+      <p class="news-subtitle">
+        Stay updated with the latest business strategies, market trends,
+        and expert insights designed to help companies grow and succeed.
+      </p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="news-grid">
+      <div class="news-card" *ngFor="let card of newsCards">
+
+        <!-- Background Image -->
+        <img [src]="card.image" [alt]="card.title" class="card-bg-image" />
+
+        <!-- Dark overlay -->
+        <div class="card-overlay"></div>
+
+        <!-- Author Info (top) -->
+        <div class="card-author">
+          <img [src]="card.authorAvatar" [alt]="card.authorName" class="author-avatar" />
+          <div class="author-info">
+            <span class="author-name">{{ card.authorName }}</span>
+            <span class="author-date">{{ card.date }}</span>
+          </div>
+        </div>
+
+        <!-- Bottom Content -->
+        <div class="card-bottom">
+          <span class="card-category">{{ card.category }}</span>
+          <h3 class="card-title">{{ card.title }}</h3>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>

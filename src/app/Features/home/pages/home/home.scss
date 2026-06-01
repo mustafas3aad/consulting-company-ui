@@ -1,0 +1,17 @@
+// =============================================
+// BiziCorp — Home Page Global Styles
+// =============================================
+// Each section component manages its own styles.
+// This file handles only top-level resets and
+// ensures no unwanted gaps between sections.
+// =============================================
+
+:host {
+  display: block;
+}
+
+// Remove any default margin/padding between
+// section components stacked in the page
+:host > * {
+  display: block;
+}

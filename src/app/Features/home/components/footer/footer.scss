@@ -1,0 +1,276 @@
+// =============================================
+// Footer — Dark Mode Ready
+// footer.component.scss
+// =============================================
+
+$font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+.footer {
+  background: var(--bizi-bg-footer);
+  font-family: $font-main; position: relative; overflow: hidden;
+  transition: background-color var(--bizi-transition);
+}
+
+.dot-pattern {
+  position: absolute; top: 0; right: 60px;
+  width: 220px; height: 120px;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.22) 1.5px, transparent 1.5px);
+  background-size: 16px 16px; pointer-events: none;
+
+  [data-theme="dark"] & {
+    background-image: radial-gradient(circle, rgba(255,255,255,0.10) 1.5px, transparent 1.5px);
+  }
+}
+
+.footer-container {
+  max-width: 1200px; margin: 0 auto; padding: 70px 40px 50px;
+  @media (max-width: 768px) { padding: 48px 24px 36px; }
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1.1fr 1.3fr;
+  gap: 40px;
+
+  @media (max-width: 1024px) { grid-template-columns: 1fr 1fr; gap: 36px; }
+  @media (max-width: 600px)  { grid-template-columns: 1fr; }
+}
+
+.brand-logo {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+}
+
+.brand-icon {
+  width: 42px; height: 42px; background: var(--bizi-primary);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 17px; font-weight: 700; font-family: $font-main;
+  color: var(--bizi-text-white);
+  sup { font-size: 8px; color: rgba(255,255,255,0.8); }
+}
+
+.brand-name { font-family: $font-main; font-size: 22px; font-weight: 700; color: var(--bizi-text-white); }
+
+.brand-desc {
+  font-family: $font-main; font-size: 13px; font-weight: 400;
+  color: var(--bizi-text-white-dim); line-height: 1.7; margin: 0 0 22px;
+}
+
+.brand-hours { display: flex; align-items: center; gap: 14px; }
+
+.hours-icon {
+  color: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%; width: 42px; height: 42px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+
+  [data-theme="dark"] & { border-color: rgba(255,255,255,0.12); }
+}
+
+.hours-label { display: block; font-family: $font-main; font-size: 12px; font-weight: 400; color: var(--bizi-text-white-dim); }
+.hours-value { display: block; font-family: $font-main; font-size: 14px; font-weight: 700; color: var(--bizi-text-white); margin-top: 2px; }
+
+.col-title { font-family: $font-main; font-size: 17px; font-weight: 700; color: var(--bizi-text-white); margin: 0 0 22px; }
+
+.services-list {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 12px;
+
+  a {
+    font-family: $font-main; font-size: 14px; font-weight: 400;
+    color: var(--bizi-text-white-dim); text-decoration: none;
+    transition: color 0.2s ease;
+    &:hover { color: var(--bizi-text-white); }
+  }
+}
+
+.contact-address {
+  font-family: $font-main; font-size: 13px; font-weight: 400;
+  color: var(--bizi-text-white-dim); line-height: 1.7; margin: 0 0 14px;
+}
+
+.contact-row {
+  font-family: $font-main; font-size: 13px; margin: 0 0 10px;
+  display: flex; align-items: center; gap: 6px;
+}
+
+.contact-label { color: var(--bizi-text-white-dim); font-weight: 400; }
+
+.contact-value {
+  font-family: $font-main; color: var(--bizi-text-white); font-weight: 600; text-decoration: none;
+  &:hover { text-decoration: underline; }
+}
+
+.social-icons {
+  display: flex; gap: 12px; margin-top: 18px;
+
+  a {
+    width: 34px; height: 34px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--bizi-text-white); text-decoration: none;
+    transition: opacity 0.2s;
+    &:hover { opacity: 0.75; }
+  }
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--bizi-border-subtle);
+  padding: 18px 40px; text-align: center;
+  transition: border-color var(--bizi-transition);
+
+  p {
+    font-family: $font-main; font-size: 13px; font-weight: 400;
+    color: var(--bizi-text-white-dim); margin: 0;
+  }
+}
+
+
+// =============================================
+// News Section — Dark Mode Ready
+// news.component.scss
+// =============================================
+
+.news-section {
+  background: var(--bizi-bg-page); padding: 72px 0 80px;
+  font-family: $font-main;
+  transition: background-color var(--bizi-transition);
+}
+
+.news-container {
+  max-width: 1200px; margin: 0 auto; padding: 0 40px;
+  @media (max-width: 900px) { padding: 0 24px; }
+}
+
+.news-header { text-align: center; margin-bottom: 44px; }
+
+.news-title {
+  font-family: $font-main; font-size: 32px; font-weight: 700;
+  color: var(--bizi-text-dark); margin: 0 0 14px; line-height: 1.25;
+  transition: color var(--bizi-transition);
+}
+
+.news-subtitle {
+  font-family: $font-main; font-size: 14px; font-weight: 400;
+  color: var(--bizi-text-gray); line-height: 1.7; margin: 0;
+  transition: color var(--bizi-transition);
+}
+
+.news-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  @media (max-width: 900px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 600px) { grid-template-columns: 1fr; }
+}
+
+.news-card {
+  position: relative; border-radius: 6px; overflow: hidden;
+  height: 460px; display: flex; flex-direction: column;
+  justify-content: space-between; cursor: pointer;
+
+  &:hover .card-bg-image { transform: scale(1.05); }
+}
+
+.card-bg-image {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; transition: transform 0.4s ease; z-index: 0;
+}
+
+.card-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(10,18,50,0.55) 0%, rgba(10,15,40,0.20) 35%, rgba(8,12,40,0.82) 100%);
+  z-index: 1;
+
+  [data-theme="dark"] & {
+    background: linear-gradient(to bottom, rgba(3,6,20,0.70) 0%, rgba(3,6,18,0.30) 35%, rgba(2,5,18,0.92) 100%);
+  }
+}
+
+.card-author {
+  position: relative; z-index: 2;
+  display: flex; align-items: center; gap: 12px; padding: 20px 20px 0;
+}
+
+.author-avatar {
+  width: 50px; height: 50px; border-radius: 50%; object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.75); flex-shrink: 0;
+}
+
+.author-info { display: flex; flex-direction: column; }
+.author-name { font-family: $font-main; font-size: 16px; font-weight: 700; color: var(--bizi-text-white); line-height: 1.3; }
+.author-date { font-family: $font-main; font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.85); margin-top: 3px; }
+
+.card-bottom { position: relative; z-index: 2; padding: 0 20px 22px; }
+
+.card-category {
+  display: inline-block; background: var(--bizi-bg-card);
+  color: var(--bizi-text-primary);
+  font-family: $font-main; font-size: 12px; font-weight: 600;
+  padding: 5px 13px; border-radius: 3px; margin-bottom: 10px;
+  transition: background-color var(--bizi-transition), color var(--bizi-transition);
+}
+
+.card-title {
+  font-family: $font-main; font-size: 17px; font-weight: 700;
+  color: var(--bizi-text-white); line-height: 1.4; margin: 0;
+}
+
+
+// =============================================
+// Subscribe Form — Dark Mode Ready
+// subscribe.component.scss
+// =============================================
+
+.subscribe-title {
+  font-size: 1.1rem; font-weight: 700; color: var(--bizi-text-white);
+  margin: 0 0 12px; font-family: $font-main;
+}
+
+.subscribe-desc {
+  font-size: 0.88rem; color: var(--bizi-text-white-dim);
+  line-height: 1.6; margin: 0 0 20px; font-family: $font-main;
+}
+
+.field-wrapper { margin-bottom: 10px; }
+
+.email-input {
+  width: 100%; background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 4px; padding: 14px 16px;
+  font-size: 0.88rem; font-family: $font-main;
+  color: var(--bizi-text-white); outline: none;
+  transition: border 0.25s ease;
+
+  &::placeholder { color: rgba(255,255,255,0.45); }
+  &:focus { border-color: rgba(255,255,255,0.4); }
+
+  [data-theme="dark"] & {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.10);
+    &:focus { border-color: rgba(255,255,255,0.30); }
+  }
+}
+
+.has-error .email-input { border-color: var(--bizi-error); }
+
+.error-msg {
+  display: block; font-size: 0.78rem; font-family: $font-main;
+  color: var(--bizi-error); margin-top: 5px;
+}
+
+.subscribe-btn {
+  width: 100%; background: var(--bizi-primary); color: var(--bizi-text-white);
+  font-size: 0.92rem; font-weight: 600; font-family: $font-main;
+  border: none; border-radius: 4px; padding: 14px; cursor: pointer;
+  transition: background 0.25s ease;
+  display: flex; align-items: center; justify-content: center; min-height: 48px;
+
+  &:hover:not(:disabled) { background: var(--bizi-primary-hover); }
+  &:disabled { opacity: 0.7; cursor: not-allowed; }
+}
+
+.spinner {
+  width: 18px; height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: var(--bizi-text-white);
+  border-radius: 50%; animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }

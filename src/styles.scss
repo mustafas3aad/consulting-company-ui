@@ -1,0 +1,178 @@
+// =============================================
+// BiziCorp — styles.scss (Global Entry Point)
+// =============================================
+
+// =============================================
+// 1. CSS CUSTOM PROPERTIES (Light defaults)
+// =============================================
+:root {
+  // --- Brand ---
+  --bizi-primary:          #1a56db;
+  --bizi-primary-hover:    #1446bf;
+  --bizi-primary-dark:     #1e40af;
+
+  // --- Backgrounds ---
+  --bizi-bg-page:          #ffffff;
+  --bizi-bg-surface:       #f8f9fc;
+  --bizi-bg-light:         #f0f4fb;
+  --bizi-bg-input:         #f8faff;
+  --bizi-bg-card:          #ffffff;
+  --bizi-bg-navy:          #0d1b3e;
+  --bizi-bg-nav:           #0f2050;
+  --bizi-bg-footer:        #1a2356;
+  --bizi-bg-footer-bottom: #152048;
+
+  // --- Text ---
+  --bizi-text-primary:     #1a1a2e;
+  --bizi-text-dark:        #0d1b3e;
+  --bizi-text-gray:        #666666;
+  --bizi-text-muted:       #7a8aaa;
+  --bizi-text-white:       #ffffff;
+  --bizi-text-white-muted: rgba(255, 255, 255, 0.70);
+  --bizi-text-white-dim:   rgba(255, 255, 255, 0.55);
+
+  // --- Borders ---
+  --bizi-border:           #dde3f0;
+  --bizi-border-card:      #e8ecf4;
+  --bizi-border-light:     #d1d9f0;
+  --bizi-border-subtle:    rgba(255, 255, 255, 0.10);
+
+  // --- Form ---
+  --bizi-input-bg:         #f8faff;
+  --bizi-input-border:     #dde3f0;
+  --bizi-input-focus-shadow: rgba(26, 86, 219, 0.10);
+  --bizi-error:            #e53e3e;
+  --bizi-success:          #2f855a;
+
+  // --- Shadows ---
+  --bizi-shadow-card:      0 8px 32px rgba(26, 86, 219, 0.14);
+  --bizi-shadow-form:      0 8px 48px rgba(8, 18, 60, 0.22);
+  --bizi-shadow-dropdown:  0 8px 24px rgba(0, 0, 0, 0.15);
+
+  // --- Overlays ---
+  --bizi-overlay-hero:     rgba(10, 22, 60, 0.90);
+  --bizi-overlay-navy:     rgba(8, 18, 60, 0.75);
+  --bizi-overlay-card:     linear-gradient(to top, rgba(13,27,62,0.90) 0%, rgba(13,27,62,0.40) 55%, rgba(13,27,62,0.10) 100%);
+  --bizi-overlay-invest:   linear-gradient(to top, #0d1b3e 0%, transparent 100%);
+
+  // --- Accordion ---
+  --bizi-accordion-bg:     #f0f4ff;
+  --bizi-accordion-hover:  #e5ecff;
+
+  // --- Stat divider ---
+  --bizi-stat-divider:     rgba(255, 255, 255, 0.35);
+
+  // --- Transitions ---
+  --bizi-transition:       0.3s ease;
+}
+
+// =============================================
+// 2. DARK MODE OVERRIDES  [data-theme="dark"]
+// =============================================
+[data-theme="dark"] {
+  // --- Backgrounds ---
+  --bizi-bg-page:          #0f1117;
+  --bizi-bg-surface:       #161b27;
+  --bizi-bg-light:         #1c2237;
+  --bizi-bg-input:         #1c2237;
+  --bizi-bg-card:          #1a2035;
+  --bizi-bg-navy:          #080e1f;
+  --bizi-bg-nav:           #080e1f;
+  --bizi-bg-footer:        #080e1f;
+  --bizi-bg-footer-bottom: #050a17;
+
+  // --- Text ---
+  --bizi-text-primary:     #e8eaf2;
+  --bizi-text-dark:        #d0d4e8;
+  --bizi-text-gray:        #8892aa;
+  --bizi-text-muted:       #6b7799;
+  --bizi-text-white:       #f0f2fa;
+  --bizi-text-white-muted: rgba(220, 225, 245, 0.70);
+  --bizi-text-white-dim:   rgba(180, 190, 220, 0.55);
+
+  // --- Borders ---
+  --bizi-border:           #2a3350;
+  --bizi-border-card:      #253048;
+  --bizi-border-light:     #2a3350;
+  --bizi-border-subtle:    rgba(255, 255, 255, 0.07);
+
+  // --- Form ---
+  --bizi-input-bg:         #1c2237;
+  --bizi-input-border:     #2a3350;
+  --bizi-input-focus-shadow: rgba(99, 140, 255, 0.15);
+  --bizi-error:            #fc8181;
+  --bizi-success:          #68d391;
+
+  // --- Shadows ---
+  --bizi-shadow-card:      0 8px 32px rgba(0, 0, 0, 0.4);
+  --bizi-shadow-form:      0 8px 48px rgba(0, 0, 0, 0.5);
+  --bizi-shadow-dropdown:  0 8px 24px rgba(0, 0, 0, 0.5);
+
+  // --- Overlays ---
+  --bizi-overlay-hero:     rgba(5, 10, 30, 0.92);
+  --bizi-overlay-navy:     rgba(5, 10, 30, 0.85);
+  --bizi-overlay-card:     linear-gradient(to top, rgba(5,10,30,0.95) 0%, rgba(5,10,30,0.50) 55%, rgba(5,10,30,0.15) 100%);
+  --bizi-overlay-invest:   linear-gradient(to top, #080e1f 0%, transparent 100%);
+
+  // --- Accordion ---
+  --bizi-accordion-bg:     #1c2237;
+  --bizi-accordion-hover:  #222b44;
+
+  // --- Stat divider ---
+  --bizi-stat-divider:     rgba(255, 255, 255, 0.20);
+}
+
+// =============================================
+// 3. Global resets & base styles
+// =============================================
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: var(--bizi-bg-page);
+  color: var(--bizi-text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// =============================================
+// 4. Global transition للـ dark mode
+// =============================================
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+
+  &[class*="spinner"],
+  &[class*="anim"] {
+    transition: none;
+  }
+}
+
+// =============================================
+// 5. Keyframes
+// =============================================
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

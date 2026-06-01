@@ -1,0 +1,171 @@
+// =============================================
+// Why Choose + Case Studies — Dark Mode Ready
+// why-choose.component.scss
+// =============================================
+
+$font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+@mixin sm-  { @media (max-width: 767px)   { @content; } }
+@mixin md   { @media (min-width: 768px) and (max-width: 1023px) { @content; } }
+@mixin md-  { @media (max-width: 1023px)  { @content; } }
+
+* { box-sizing: border-box; }
+
+.container {
+  max-width: 1200px; margin: 0 auto; padding: 0 40px;
+  @include md  { padding: 0 28px; }
+  @include sm- { padding: 0 20px; }
+}
+
+// =============================================
+// SECTION 1 — REASONS
+// =============================================
+.reasons-section {
+  background: var(--bizi-bg-light);
+  padding: 64px 0 72px;
+  transition: background-color var(--bizi-transition);
+
+  @include md  { padding: 52px 0 60px; }
+  @include sm- { padding: 40px 0 48px; }
+}
+
+.reasons-title {
+  font-family: $font-main; font-size: 30px; font-weight: 700;
+  color: var(--bizi-text-dark);
+  text-align: center; line-height: 1.3; margin: 0 0 44px;
+  transition: color var(--bizi-transition);
+
+  @include md  { font-size: 25px; margin-bottom: 36px; }
+  @include sm- { font-size: 20px; margin-bottom: 28px; }
+}
+
+.reasons-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0 4px; align-items: start; position: relative;
+
+  @include md  { grid-template-columns: repeat(2, 1fr); gap: 36px 0; }
+  @include sm- { grid-template-columns: 1fr 1fr; gap: 28px 12px; }
+}
+
+.reason-item {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; padding: 0 24px; position: relative;
+
+  @include md  { padding: 0 18px; }
+  @include sm- { padding: 0 8px; }
+}
+
+.reason-icon {
+  width: 52px; height: 52px; display: flex; align-items: center;
+  justify-content: center; margin-bottom: 16px;
+  svg { width: 100%; height: 100%; display: block; }
+}
+
+.reason-text {
+  font-family: $font-main; font-size: 13px; font-weight: 500;
+  color: var(--bizi-text-dark); line-height: 1.55; margin: 0;
+  transition: color var(--bizi-transition);
+  @include sm- { font-size: 12px; }
+}
+
+.reason-divider {
+  position: absolute; right: 0; top: 0; width: 1px; height: 70px;
+  background: var(--bizi-border-light);
+  transition: background-color var(--bizi-transition);
+  @include md- { display: none; }
+}
+
+// =============================================
+// SECTION 2 — CASE STUDIES
+// =============================================
+.case-studies-section {
+  background: var(--bizi-bg-page);
+  padding: 72px 0 90px;
+  transition: background-color var(--bizi-transition);
+
+  @include md  { padding: 56px 0 72px; }
+  @include sm- { padding: 44px 0 56px; }
+}
+
+.case-header {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 24px; margin-bottom: 36px;
+
+  @include sm- { flex-direction: column; gap: 16px; margin-bottom: 24px; }
+}
+
+.case-title {
+  font-family: $font-main; font-size: 30px; font-weight: 700;
+  color: var(--bizi-text-dark);
+  line-height: 1.3; margin: 0;
+  transition: color var(--bizi-transition);
+
+  @include md  { font-size: 25px; }
+  @include sm- { font-size: 20px; }
+}
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--bizi-primary); color: var(--bizi-text-white);
+  padding: 13px 26px; font-family: $font-main;
+  font-size: 14px; font-weight: 600;
+  text-decoration: none; border-radius: 2px;
+  white-space: nowrap; flex-shrink: 0;
+  transition: background 0.2s; align-self: center;
+
+  span { font-size: 15px; }
+  &:hover { background: var(--bizi-primary-hover); }
+  @include sm- { width: 100%; justify-content: center; }
+}
+
+.case-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 4px;
+  @include md  { grid-template-columns: repeat(2, 1fr); }
+  @include sm- { grid-template-columns: 1fr 1fr; }
+}
+
+.case-card {
+  position: relative; overflow: hidden; height: 380px;
+  display: flex; flex-direction: column;
+  justify-content: space-between; cursor: pointer;
+
+  @include md  { height: 300px; }
+  @include sm- { height: 220px; }
+
+  &:hover .case-img { transform: scale(1.06); }
+  &:hover .case-overlay { background: rgba(13,27,62,0.72); }
+}
+
+.case-img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.45s ease;
+}
+
+.case-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(13,27,62,0.90) 0%, rgba(13,27,62,0.40) 55%, rgba(13,27,62,0.10) 100%);
+  transition: background 0.35s;
+
+  [data-theme="dark"] & {
+    background: linear-gradient(to top, rgba(3,7,20,0.95) 0%, rgba(3,7,20,0.50) 55%, rgba(3,7,20,0.15) 100%);
+  }
+}
+
+.case-content {
+  position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 18px;
+  @include sm- { padding: 14px 12px; }
+}
+
+.case-category {
+  display: block; font-family: $font-main; font-size: 12px; font-weight: 400;
+  color: rgba(255,255,255,0.75); margin-bottom: 6px; letter-spacing: 0.2px;
+  @include sm- { font-size: 11px; }
+}
+
+.case-card-title {
+  font-family: $font-main; font-size: 15px; font-weight: 700;
+  color: var(--bizi-text-white); line-height: 1.35; margin: 0;
+
+  @include md  { font-size: 14px; }
+  @include sm- { font-size: 12px; }
+}

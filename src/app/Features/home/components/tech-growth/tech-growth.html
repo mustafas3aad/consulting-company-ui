@@ -1,0 +1,119 @@
+<!-- ===== SECTION 1: Grow Customer Relationships ===== -->
+<section class="grow-section">
+  <div class="grow-container">
+
+    <!-- Left Content -->
+    <div class="grow-left">
+      <h2 class="grow-title">
+        Grow Customer Relationships<br>Via Technology Solutions.
+      </h2>
+      <p class="grow-description">
+        We help companies improve operational efficiency,
+        strengthen customer relationships, and achieve long-term
+        success through innovative business strategies.
+      </p>
+
+      <!-- Accordion -->
+      <div class="accordion">
+        <div class="accordion-item" *ngFor="let item of accordionItems" [class.active]="item.isOpen">
+          <button class="accordion-header" (click)="toggleAccordion(item)">
+            <span class="accordion-title">{{ item.title }}</span>
+            <span class="accordion-icon">
+              <svg *ngIf="item.isOpen" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="8 12 12 8 16 12"></polyline>
+              </svg>
+              <svg *ngIf="!item.isOpen" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="8 12 12 16 16 12"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="accordion-body" *ngIf="item.isOpen">
+            <p>{{ item.content }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Images Grid -->
+    <div class="grow-right">
+      <!-- Rating Card -->
+      <div class="rating-card">
+        <div class="rating-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+            fill="none" stroke="#1e3a8a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+            <circle cx="8" cy="10" r="1" fill="#1e3a8a"></circle>
+          </svg>
+        </div>
+        <div class="rating-info">
+          <span class="rating-percent">93%</span>
+          <span class="rating-label">Working Total<br>Rating</span>
+        </div>
+      </div>
+
+      <!-- Image Grid — صورتين بنفس الطول -->
+      <div class="images-grid">
+        <div class="img-col--left">
+          <img
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80"
+            alt="Business meeting" class="img-main" />
+        </div>
+        <div class="img-col--right">
+          <img
+            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80"
+            alt="Business professional" class="img-main" />
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== SECTION 2: Testimonial ===== -->
+<section class="testimonial-section">
+
+  <!-- الصورة في الجانب الأيمن -->
+  <img
+    src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&q=80"
+    alt="Client portrait"
+    class="testimonial-bg-img"
+  />
+
+  <div class="testimonial-container">
+    <div class="testimonial-left">
+      <h2 class="testimonial-title">
+        What Our Clients Say About<br>NovaEdge Service
+      </h2>
+
+      <div class="testimonial-quote">
+        <div class="quote-mark">
+          <img src="https://bizicorp.radiantthemes.com/wp-content/uploads/2021/05/left-quote.png"
+            alt="quote" class="quote-icon-img" style="width:48px; opacity:0.9;" />
+        </div>
+        <p class="quote-text">
+          "NovaEdge helped us transform our business strategy
+          and improve operational performance. Their consulting
+          expertise delivered measurable results and real growth."
+        </p>
+        <div class="testimonial-author">
+          <img
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80"
+            alt="David Richerd Doe" class="author-avatar" />
+          <div class="author-info">
+            <span class="author-name">David Richerd Doe</span>
+            <span class="author-role">Travel Agent</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

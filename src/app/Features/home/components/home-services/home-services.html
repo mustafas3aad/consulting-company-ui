@@ -1,0 +1,66 @@
+<!-- =============================================
+     SECTION 1: Invest in Our Company
+     ============================================= -->
+<section class="invest-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">
+        Invest in Our Company and Have<br class="hide-mobile"> Healthy Profits for Long Term
+      </h2>
+      <p class="section-desc">
+        We provide strategic guidance and innovative business solutions
+        to help companies improve performance, increase profitability,
+        and achieve sustainable growth.
+      </p>
+    </div>
+
+    <!-- Service Cards -->
+    <div class="cards-grid">
+      <div class="service-card" *ngFor="let card of serviceCards">
+        <div class="card-top">
+          <div class="card-icon-row">
+            <span class="card-icon" [innerHTML]="card.icon"></span>
+            <h6 class="card-title">{{ card.title }}</h6>
+          </div>
+          <p class="card-desc">{{ card.description }}</p>
+        </div>
+        <div class="card-image-wrap">
+          <img [src]="card.image" [alt]="card.title" class="card-img" loading="lazy">
+        </div>
+        <div class="card-footer">
+          <a href="#" class="card-link">Discover More <span>›</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     SECTION 2: What We Offer For You
+     ============================================= -->
+<section class="offer-section">
+  <div class="container">
+    <div class="offer-header">
+      <div class="offer-header__left">
+        <h3 class="offer-title">What We Offer For You</h3>
+        <p class="offer-desc">
+           Our expert consultants help businesses overcome challenges,
+          optimize operations, and create strategies for long-term success.
+        </p>
+      </div>
+      <div class="offer-header__right">
+        <a href="#" class="btn-primary">More Service <span>›</span></a>
+      </div>
+    </div>
+
+    <div class="offer-grid">
+      <div class="offer-item" *ngFor="let item of offerItems">
+        <div class="offer-icon" [innerHTML]="item.icon"></div>
+        <div class="offer-content">
+          <h6 class="offer-item-title">{{ item.title }}</h6>
+          <p class="offer-item-desc">{{ item.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

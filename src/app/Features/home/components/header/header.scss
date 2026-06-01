@@ -1,0 +1,356 @@
+// =============================================
+// BiziCorp Header & Hero — Dark Mode Ready
+// header-hero.component.scss
+// =============================================
+
+$font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+@mixin xs   { @media (max-width: 479px)                         { @content; } }
+@mixin sm   { @media (min-width: 480px) and (max-width: 767px)  { @content; } }
+@mixin sm-  { @media (max-width: 767px)                         { @content; } }
+@mixin md   { @media (min-width: 768px) and (max-width: 1023px) { @content; } }
+@mixin md-  { @media (max-width: 1023px)                        { @content; } }
+@mixin lg   { @media (min-width: 1024px) and (max-width: 1279px){ @content; } }
+@mixin xl   { @media (min-width: 1280px)                        { @content; } }
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+.hero-wrapper { position: relative; }
+.site-header  { position: relative; z-index: 100; }
+
+// =============================================
+// NAVBAR
+// =============================================
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: var(--bizi-bg-nav);
+  height: 72px;
+  padding: 0 60px;
+  position: relative;
+  z-index: 10;
+  transition: background-color var(--bizi-transition);
+
+  @include lg  { padding: 0 40px; }
+  @include md  { padding: 0 28px; height: 68px; }
+  @include sm- { padding: 0 20px; height: 64px; }
+}
+
+.site-header {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+
+  .navbar {
+    background-color: transparent;
+    border-bottom: none;
+  }
+}
+
+// =============================================
+// LOGO
+// =============================================
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+  margin-right: 48px;
+
+  @include lg  { margin-right: 30px; }
+  @include md- { margin-right: 0; }
+}
+
+.logo-icon {
+  width: 40px; height: 40px;
+  background: var(--bizi-primary);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: visible; flex-shrink: 0;
+
+  @include xs { width: 34px; height: 34px; }
+}
+
+.logo-b {
+  color: var(--bizi-text-white);
+  font-size: 18px; font-weight: 700;
+  font-family: $font-main; line-height: 1;
+  @include xs { font-size: 15px; }
+}
+
+.logo-dots {
+  position: absolute; top: 4px; right: -2px;
+  display: flex; flex-direction: column; gap: 2px;
+}
+
+.dot { border-radius: 50%; background: rgba(255,255,255,0.7); }
+.dot.dot-1 { width: 5px; height: 5px; }
+.dot.dot-2 { width: 3px; height: 3px; opacity: 0.5; }
+
+.logo-text {
+  color: var(--bizi-text-white);
+  font-size: 22px; font-weight: 700;
+  font-family: $font-main; letter-spacing: 0.3px;
+  @include xs { font-size: 18px; }
+}
+
+// =============================================
+// NAV MENU
+// =============================================
+.nav-menu {
+  display: flex; list-style: none; flex: 1;
+  @include md- { display: none; }
+}
+
+.nav-item { position: relative; }
+
+.nav-link {
+  display: flex; align-items: center; gap: 5px;
+  color: var(--bizi-text-white);
+  text-decoration: none; font-family: $font-main;
+  font-weight: 500; white-space: nowrap;
+  height: 72px; padding: 0 18px; font-size: 15px;
+  transition: color 0.2s;
+
+  @include lg { padding: 0 13px; font-size: 14px; }
+  &:hover { color: rgba(255,255,255,0.75); }
+  .chevron { width: 10px; height: 6px; flex-shrink: 0; }
+}
+
+// =============================================
+// DROPDOWN
+// =============================================
+.dropdown {
+  position: absolute; top: 100%; left: 0;
+  background: var(--bizi-bg-card);
+  min-width: 160px;
+  box-shadow: var(--bizi-shadow-dropdown);
+  border-top: 3px solid var(--bizi-primary);
+  animation: fadeDown 0.15s ease;
+  z-index: 200;
+
+  .dropdown-item {
+    display: block; padding: 10px 18px;
+    color: var(--bizi-text-primary);
+    font-size: 14px; font-weight: 400;
+    text-decoration: none; font-family: $font-main;
+    transition: background 0.15s, color 0.15s;
+
+    &:hover {
+      background: var(--bizi-bg-light);
+      color: var(--bizi-primary);
+    }
+  }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// =============================================
+// HEADER ACTIONS — includes theme toggle slot
+// =============================================
+.header-actions {
+  display: flex; align-items: center; gap: 14px;
+  margin-left: auto;
+
+  @include sm- { display: none; }
+  @include md  { gap: 10px; .social-icon { display: none; } }
+}
+
+.social-icon, .search-btn {
+  color: var(--bizi-text-white);
+  background: none; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0.85; transition: opacity 0.2s;
+  text-decoration: none;
+
+  svg { width: 17px; height: 17px; }
+  &:hover { opacity: 1; }
+}
+
+// =============================================
+// HAMBURGER
+// =============================================
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer;
+  padding: 6px; margin-left: auto;
+
+  span {
+    display: block; width: 24px; height: 2px;
+    background: var(--bizi-text-white);
+    border-radius: 2px;
+    transition: transform 0.25s, opacity 0.25s;
+  }
+
+  @include md- { display: flex; }
+
+  &.is-open {
+    span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    span:nth-child(2) { opacity: 0; }
+    span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+}
+
+// =============================================
+// MOBILE MENU
+// =============================================
+.mobile-menu {
+  display: none;
+  background: var(--bizi-bg-nav);
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1),
+              background-color var(--bizi-transition);
+
+  @include md- { display: block; }
+  &.open { max-height: 500px; }
+
+  ul {
+    list-style: none; padding: 8px 24px 16px;
+
+    li a {
+      display: flex; justify-content: space-between; align-items: center;
+      color: var(--bizi-text-white); text-decoration: none;
+      padding: 13px 0; font-size: 15px;
+      font-family: $font-main; font-weight: 500;
+      border-bottom: 1px solid var(--bizi-border-subtle);
+      transition: color 0.2s;
+
+      &:hover { color: rgba(255,255,255,0.7); }
+      &::after { content: '›'; font-size: 18px; opacity: 0.5; }
+    }
+  }
+
+  .mobile-socials {
+    display: flex; gap: 18px;
+    padding: 12px 24px 20px;
+    border-top: 1px solid var(--bizi-border-subtle);
+
+    a {
+      color: var(--bizi-text-white); opacity: 0.7;
+      text-decoration: none; display: flex;
+      svg { width: 18px; height: 18px; }
+      &:hover { opacity: 1; }
+    }
+  }
+}
+
+// =============================================
+// HERO
+// =============================================
+.hero {
+  position: relative;
+  min-height: 620px;
+  display: flex; align-items: center; overflow: hidden;
+
+  background:
+    linear-gradient(to right, var(--bizi-overlay-hero) 42%, rgba(10,22,60,0.50) 100%),
+    url('https://images.unsplash.com/photo-1551434678-e076c223a692?w=1600&q=80')
+    center / cover no-repeat;
+
+  @include md  { min-height: 520px; }
+  @include sm  { min-height: 460px; }
+  @include xs  { min-height: 420px; }
+}
+
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: rgba(10,25,70,0.30);
+
+  [data-theme="dark"] & { background: rgba(5,10,30,0.45); }
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 140px 60px 80px;
+  max-width: 700px; width: 100%;
+
+  @include lg  { padding: 130px 40px 70px; max-width: 620px; }
+  @include md  { padding: 120px 40px 60px; max-width: 100%; }
+  @include sm  { padding: 110px 24px 48px; }
+  @include xs  { padding: 100px 20px 40px; }
+}
+
+.hero-tag {
+  color: var(--bizi-text-white);
+  font-weight: 600; font-family: $font-main;
+  letter-spacing: 0.4px; margin-bottom: 16px; font-size: 14px;
+  @include sm- { font-size: 13px; margin-bottom: 10px; }
+}
+
+.hero-title {
+  display: flex; align-items: flex-start; gap: 18px;
+  color: var(--bizi-text-white);
+  font-weight: 700; font-family: $font-main;
+  line-height: 1.2; margin-bottom: 24px; font-size: 46px;
+
+  @include lg  { font-size: 40px; }
+  @include md  { font-size: 34px; gap: 14px; }
+  @include sm  { font-size: 28px; gap: 12px; margin-bottom: 18px; }
+  @include xs  { font-size: 24px; gap: 10px; margin-bottom: 16px; }
+}
+
+.hero-border {
+  display: block; width: 5px; min-height: 140px;
+  background: var(--bizi-text-white);
+  border-radius: 3px; flex-shrink: 0; margin-top: 4px;
+
+  @include md  { min-height: 110px; }
+  @include sm  { min-height: 86px; width: 4px; }
+  @include xs  { min-height: 74px; width: 4px; }
+}
+
+.hero-desc {
+  color: rgba(255,255,255,0.88);
+  font-family: $font-main; font-weight: 400;
+  line-height: 1.7; margin-bottom: 36px; font-size: 15px;
+
+  @include sm  { font-size: 14px; margin-bottom: 28px; }
+  @include xs  { font-size: 13px; margin-bottom: 24px; br { display: none; } }
+}
+
+.hero-buttons {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  @include xs { gap: 12px; }
+}
+
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-weight: 600; font-family: $font-main;
+  text-decoration: none; border-radius: 2px;
+  transition: all 0.2s; cursor: pointer;
+  white-space: nowrap; padding: 13px 26px; font-size: 15px;
+
+  @include md  { padding: 11px 22px; font-size: 14px; }
+  @include sm  { padding: 11px 20px; font-size: 14px; }
+  @include xs  { padding: 10px 16px; font-size: 13px; }
+
+  span { font-size: 16px; }
+
+  &.btn-outline {
+    background: var(--bizi-text-white);
+    color: #1a1a2e;
+    border: 2px solid var(--bizi-text-white);
+    &:hover { background: transparent; color: var(--bizi-text-white); }
+  }
+
+  &.btn-primary {
+    background: var(--bizi-primary);
+    color: var(--bizi-text-white);
+    border: 2px solid var(--bizi-primary);
+    &:hover { background: var(--bizi-primary-hover); border-color: var(--bizi-primary-hover); }
+  }
+}
+
+// Animations
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-tag     { animation: slideDown 0.6s ease forwards; animation-delay: 0.10s; opacity: 0; }
+.hero-title   { animation: slideDown 0.6s ease forwards; animation-delay: 0.25s; opacity: 0; }
+.hero-desc    { animation: slideDown 0.6s ease forwards; animation-delay: 0.40s; opacity: 0; }
+.hero-buttons { animation: slideDown 0.6s ease forwards; animation-delay: 0.55s; opacity: 0; }

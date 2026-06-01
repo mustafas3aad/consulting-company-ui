@@ -1,0 +1,241 @@
+// =============================================
+// BiziCorp — Book Appointment — Dark Mode Ready
+// book-appointment.component.scss
+// =============================================
+
+$font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+@mixin sm-  { @media (max-width: 767px)   { @content; } }
+@mixin md   { @media (min-width: 768px) and (max-width: 1099px) { @content; } }
+@mixin md-  { @media (max-width: 1099px)  { @content; } }
+
+* { box-sizing: border-box; }
+
+// =============================================
+// WRAPPER
+// =============================================
+.grow-section {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 640px; position: relative;
+  background:
+    url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&q=80')
+    center / cover no-repeat;
+  overflow: hidden;
+
+  @include md  { grid-template-columns: 1fr 1fr; min-height: 540px; }
+  @include sm- { grid-template-columns: 1fr; }
+}
+
+.grow-overlay {
+  position: absolute; inset: 0;
+  background: var(--bizi-overlay-navy);
+  z-index: 0; pointer-events: none;
+  transition: background var(--bizi-transition);
+}
+
+// =============================================
+// LEFT — Stats
+// =============================================
+.grow-left  { position: relative; z-index: 1; }
+
+.grow-content {
+  position: relative; z-index: 2; padding: 72px 60px;
+  @include md  { padding: 56px 36px; }
+  @include sm- { padding: 48px 24px; }
+}
+
+.grow-title {
+  font-family: $font-main; font-size: 34px; font-weight: 700;
+  color: var(--bizi-text-white);
+  line-height: 1.25; margin: 0 0 44px;
+
+  @include md  { font-size: 26px; margin-bottom: 32px; }
+  @include sm- { font-size: 22px; margin-bottom: 28px; }
+}
+
+.stats { display: flex; flex-direction: column; gap: 28px; @include sm- { gap: 22px; } }
+
+.stat-row {
+  display: grid; grid-template-columns: 150px 1px 1fr;
+  align-items: start; gap: 0 20px;
+
+  @include md  { grid-template-columns: 120px 1px 1fr; }
+  @include sm- { grid-template-columns: 110px 1px 1fr; gap: 0 14px; }
+}
+
+.stat-left { display: flex; flex-direction: column; gap: 4px; }
+
+.stat-number {
+  font-family: $font-main; font-size: 44px; font-weight: 700;
+  color: var(--bizi-text-white); line-height: 1;
+  @include md  { font-size: 36px; }
+  @include sm- { font-size: 30px; }
+}
+
+.stat-label {
+  font-family: $font-main; font-size: 14px; font-weight: 700;
+  color: var(--bizi-text-white);
+  @include sm- { font-size: 13px; }
+}
+
+.stat-divider {
+  width: 1px; height: 64px;
+  background: var(--bizi-stat-divider);
+  margin-top: 4px;
+}
+
+.stat-desc {
+  font-family: $font-main; font-size: 13px; font-weight: 400;
+  color: var(--bizi-text-white-muted);
+  line-height: 1.65; margin: 4px 0 0;
+}
+
+// =============================================
+// RIGHT — Form
+// =============================================
+.grow-right {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  padding: 48px 40px;
+
+  @include md  { padding: 48px 24px; }
+  @include sm- { padding: 32px 20px; }
+}
+
+.form-card {
+  background: var(--bizi-bg-card);
+  border-radius: 4px; padding: 36px 36px 32px;
+  width: 100%; max-width: 460px;
+  box-shadow: var(--bizi-shadow-form);
+  transition: background-color var(--bizi-transition), box-shadow var(--bizi-transition);
+
+  @include md  { padding: 28px 24px; }
+  @include sm- { padding: 24px 18px; }
+}
+
+.form-sub {
+  font-family: $font-main; font-size: 13px; font-weight: 400;
+  color: var(--bizi-text-muted);
+  text-align: center; margin: 0 0 6px; letter-spacing: 0.3px;
+  transition: color var(--bizi-transition);
+}
+
+.form-title {
+  font-family: $font-main; font-size: 26px; font-weight: 700;
+  color: var(--bizi-text-dark);
+  text-align: center; margin: 0 0 24px;
+  transition: color var(--bizi-transition);
+
+  @include sm- { font-size: 22px; margin-bottom: 20px; }
+}
+
+// ---- Fields ----
+.field-group {
+  margin-bottom: 14px;
+
+  input, textarea {
+    width: 100%;
+    border: 1px solid var(--bizi-input-border);
+    border-radius: 3px; padding: 12px 16px;
+    font-family: $font-main; font-size: 14px;
+    color: var(--bizi-text-primary);
+    background: var(--bizi-input-bg);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s,
+                background-color var(--bizi-transition), color var(--bizi-transition);
+    resize: none;
+
+    &::placeholder { color: var(--bizi-text-muted); }
+
+    &:focus {
+      border-color: var(--bizi-primary);
+      background: var(--bizi-bg-card);
+      box-shadow: 0 0 0 3px var(--bizi-input-focus-shadow);
+    }
+
+    &.is-invalid {
+      border-color: var(--bizi-error);
+      background: var(--bizi-input-bg);
+
+      &:focus { box-shadow: 0 0 0 3px rgba(229,62,62,0.10); }
+    }
+  }
+
+  textarea { min-height: 100px; }
+}
+
+// ---- Select ----
+.select-wrapper {
+  position: relative; width: 100%;
+
+  select {
+    width: 100%; border: 1px solid var(--bizi-input-border);
+    border-radius: 3px; padding: 12px 40px 12px 16px;
+    font-family: $font-main; font-size: 14px;
+    color: var(--bizi-text-primary);
+    background: var(--bizi-input-bg);
+    outline: none; appearance: none; -webkit-appearance: none;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s,
+                background-color var(--bizi-transition), color var(--bizi-transition);
+
+    &.placeholder-selected { color: var(--bizi-text-muted); }
+
+    &:focus {
+      border-color: var(--bizi-primary);
+      background: var(--bizi-bg-card);
+      box-shadow: 0 0 0 3px var(--bizi-input-focus-shadow);
+    }
+
+    &.is-invalid { border-color: var(--bizi-error); background: var(--bizi-input-bg); }
+    &:disabled { opacity: 0.65; cursor: not-allowed; }
+
+    option {
+      background: var(--bizi-bg-card);
+      color: var(--bizi-text-primary);
+    }
+  }
+
+  .select-arrow {
+    position: absolute; right: 14px; top: 50%;
+    transform: translateY(-50%); pointer-events: none;
+    color: var(--bizi-text-muted);
+    display: flex; align-items: center; justify-content: center;
+  }
+}
+
+.spinner-sm {
+  width: 14px; height: 14px;
+  border: 2px solid rgba(26,86,219,0.25);
+  border-top-color: var(--bizi-primary);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite; display: inline-block;
+}
+
+.error-msg {
+  font-family: $font-main; font-size: 12px;
+  color: var(--bizi-error); margin-top: 5px; padding-left: 2px;
+}
+
+// ---- Submit Button ----
+.submit-btn {
+  width: 100%; background: var(--bizi-primary);
+  color: var(--bizi-text-white); border: none;
+  border-radius: 3px; padding: 15px;
+  font-family: $font-main; font-size: 15px; font-weight: 600;
+  cursor: pointer; transition: background 0.2s;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 50px; margin-top: 6px;
+
+  &:hover:not(:disabled) { background: var(--bizi-primary-hover); }
+  &:disabled { opacity: 0.7; cursor: not-allowed; }
+}
+
+.spinner {
+  width: 20px; height: 20px;
+  border: 3px solid rgba(255,255,255,0.35);
+  border-top-color: var(--bizi-text-white);
+  border-radius: 50%; animation: spin 0.75s linear infinite; display: inline-block;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }

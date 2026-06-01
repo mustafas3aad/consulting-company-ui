@@ -1,0 +1,33 @@
+<div class="subscribe-widget">
+  <h4 class="subscribe-title">Subscribe Newsletter</h4>
+  <p class="subscribe-desc">
+    Get the latest business insights, consulting tips,
+    and industry updates delivered directly to your inbox.
+  </p>
+
+  <form [formGroup]="subscribeForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <!-- Email Input -->
+    <div class="field-wrapper" [class.has-error]="emailErrors">
+      <input
+        type="email"
+        formControlName="email"
+        class="email-input"
+        placeholder="Email Address"
+        autocomplete="email"
+      />
+      <span class="error-msg" *ngIf="emailErrors">{{ emailErrors }}</span>
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      class="subscribe-btn"
+      [disabled]="isLoading"
+    >
+      <span *ngIf="!isLoading">Subscribe Now</span>
+      <span *ngIf="isLoading" class="spinner"></span>
+    </button>
+
+  </form>
+</div>
