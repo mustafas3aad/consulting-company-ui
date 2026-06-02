@@ -1,0 +1,221 @@
+{
+  "BOOK_APPOINTMENT": {
+    "TITLE": "We Can Help You To Grow Your Business",
+    "FREE_CONSULTATION": "Free Consultation",
+    "FORM_TITLE": "Book Appointment",
+    "FORM": {
+      "NAME_PLACEHOLDER": "Name",
+      "EMAIL_PLACEHOLDER": "Email",
+      "COMPANY_PLACEHOLDER": "Company Name",
+      "MESSAGE_PLACEHOLDER": "Message",
+      "SELECT_SERVICE": "Select a Service",
+      "LOADING_SERVICES": "Loading services...",
+      "SUBMIT": "Submit Now"
+    },
+    "ERRORS": {
+      "NAME_REQUIRED": "Name is required.",
+      "NAME_MAX": "Max 150 characters.",
+      "EMAIL_REQUIRED": "Email is required.",
+      "EMAIL_INVALID": "Enter a valid email.",
+      "COMPANY_REQUIRED": "Company Name is required.",
+      "SERVICE_REQUIRED": "Please select a service."
+    },
+    "STATS": {
+      "HAPPY_CUSTOMERS": {
+        "LABEL": "Happy Customers",
+        "DESC": "We have helped hundreds of businesses improve operations, increase profitability, and achieve sustainable growth."
+      },
+      "CLIENTS_SATISFIED": {
+        "LABEL": "Clients Satisfied",
+        "DESC": "Our consulting solutions are designed to deliver measurable results and long-term business success."
+      },
+      "PROJECTS_DONE": {
+        "LABEL": "Projects Done",
+        "DESC": "From business strategy to digital transformation, we deliver tailored consulting solutions across industries."
+      }
+    },
+    "TOAST": {
+      "SUCCESS": "Your request has been submitted successfully!",
+      "ERROR": "Something went wrong. Please try again."
+    }
+  },
+  "FOOTER": {
+    "BRAND_DESC": "Empowering businesses with innovative consulting solutions, strategic planning, and digital transformation services that drive measurable growth.",
+    "HOURS_LABEL": "Mon – Sat :",
+    "HOURS_VALUE": "10:00 AM To 07:30 PM",
+    "OUR_SERVICES": "Our Services",
+    "GET_IN_TOUCH": "Get In Touch",
+    "ADDRESS": "25 Business Avenue, Smart Village\nCairo, Egypt",
+    "PHONE_LABEL": "Phone :",
+    "EMAIL_LABEL": "Email :",
+    "COPYRIGHT": "NovaEdge © All Rights Reserved",
+    "SERVICES": {
+      "FINANCIAL_PLANNING": "Financial Planning",
+      "SOFTWARE_RESEARCH": "Software & Research",
+      "BUSINESS_SERVICES": "Business Services",
+      "QUALITY_RESOURCING": "Quality Resourcing",
+      "TRAVEL_AVIATION": "Travel and Aviation",
+      "HEALTHCARE_SERVICES": "Healthcare Services"
+    }
+  },
+  "HEADER": {
+    "DROPDOWN": {
+      "OPTION1": "Option 1",
+      "OPTION2": "Option 2",
+      "OPTION3": "Option 3"
+    },
+    "HERO": {
+      "TAG": "Best For Your Success.",
+      "TITLE": "Innovative Solutions To Move Your Business Forward.",
+      "DESC": "We help businesses unlock growth opportunities through strategic consulting, digital transformation, and innovative solutions.",
+      "BTN_CONSULTATION": "Free Consultation",
+      "BTN_STARTED": "Get Started"
+    },
+    "NAV": {
+      "HOME": "Home",
+      "PAGES": "Pages",
+      "ABOUT": "About",
+      "SERVICE": "Service",
+      "CONTACT": "Contact",
+      "BLOG": "Blog"
+    }
+  },
+  "HOME_SERVICES": {
+    "INVEST_TITLE": "Invest in Our Company and Have Healthy Profits for Long Term",
+    "INVEST_DESC": "We provide strategic guidance and innovative business solutions to help companies improve performance, increase profitability, and achieve sustainable growth.",
+    "DISCOVER_MORE": "Discover More",
+    "OFFER_TITLE": "What We Offer For You",
+    "OFFER_DESC": "Our expert consultants help businesses overcome challenges, optimize operations, and create strategies for long-term success.",
+    "MORE_SERVICE": "More Service",
+    "CARDS": {
+      "BUSINESS_PLANNING": {
+        "TITLE": "Business Planning & Strategy",
+        "DESC": "Helping businesses create effective strategies to improve performance and achieve sustainable growth"
+      },
+      "FINANCIAL_PROJECTION": {
+        "TITLE": "Financial Projection Analysis",
+        "DESC": "Professional financial consulting to help companies optimize budgets and maximize profitability."
+      },
+      "INTERNATIONAL_BUSINESS": {
+        "TITLE": "International Business Opportunities",
+        "DESC": "Supporting organizations with innovative technology solutions and modern digital strategies."
+      }
+    },
+    "OFFERS": {
+      "FINANCIAL_PLANNING": {
+        "TITLE": "Financial Planning",
+        "DESC": "Strategic financial solutions designed to support business growth and long-term stability."
+      },
+      "QUALITY_RESOURCING": {
+        "TITLE": "Quality Resourcing",
+        "DESC": "Helping companies build high-performing teams and improve workforce productivity."
+      },
+      "BUSINESS_SERVICES": {
+        "TITLE": "Business Services",
+        "DESC": "Improving operational efficiency through smart processes and strategic management."
+      },
+      "SOFTWARE_RESEARCH": {
+        "TITLE": "Software and Research",
+        "DESC": "Modern technology solutions that support digital transformation and business innovation."
+      },
+      "TRAVEL_AVIATION": {
+        "TITLE": "Travel and Aviation",
+        "DESC": "Helping businesses identify risks and implement effective strategies for long-term success."
+      },
+      "HEALTHCARE_SERVICES": {
+        "TITLE": "Healthcare Services",
+        "DESC": "Providing valuable market insights to help businesses make informed strategic decisions."
+      }
+    }
+  },
+  "LATEST_NEWS": {
+    "TITLE": "Our Latest News",
+    "SUBTITLE": "Stay updated with the latest business strategies, market trends, and expert insights designed to help companies grow and succeed.",
+    "CARDS": {
+      "CARD1": {
+        "CATEGORY": "Staff Meeting",
+        "TITLE": "Participate in Staff Meetings Manage Dedicated To Marketing"
+      },
+      "CARD2": {
+        "CATEGORY": "Staff Meeting",
+        "TITLE": "Participate in Staff Meetings Manage Dedicated To Marketing"
+      },
+      "CARD3": {
+        "CATEGORY": "Staff Meeting",
+        "TITLE": "Participate in Staff Meetings Manage Dedicated To Marketing"
+      }
+    }
+  },
+  "NEWSLETTER": {
+    "TITLE": "Subscribe Newsletter",
+    "DESC": "Get the latest business insights, consulting tips, and industry updates delivered directly to your inbox.",
+    "PLACEHOLDER": "Email Address",
+    "SUBMIT": "Subscribe Now",
+    "ERRORS": {
+      "REQUIRED": "Email is required.",
+      "INVALID": "Please enter a valid email address.",
+      "MAX_LENGTH": "Email must not exceed 256 characters."
+    },
+    "TOAST": {
+      "SUCCESS": "You've subscribed successfully!",
+      "ERROR": "Something went wrong. Please try again."
+    }
+  },
+  "WHY_CHOOSE": {
+    "REASONS_TITLE": "Best Reasons For Choose Our Service",
+    "CASE_TITLE": "We Have Done The Works, Recent Case Studies",
+    "MORE_CASES": "More Case Studies",
+    "REASONS": {
+      "ITEM1": "Automate More Stuff Relax More.",
+      "ITEM2": "24x7 Hours Customer Support",
+      "ITEM3": "Trusted By Leaders Valuable Ideas",
+      "ITEM4": "Keeping You in Touch With Your Customers."
+    },
+    "CASES": {
+      "CASE1": {
+        "CATEGORY": "Adipiscing",
+        "TITLE": "Your Business Success Is Our Business."
+      },
+      "CASE2": {
+        "CATEGORY": "Consectetur",
+        "TITLE": "Business Accounting Wealth & Capital Management"
+      },
+      "CASE3": {
+        "CATEGORY": "Business Services",
+        "TITLE": "Financial Services Customer Centric Approach."
+      },
+      "CASE4": {
+        "CATEGORY": "Inventory Tracking",
+        "TITLE": "Inventory Management Maintaining System."
+      }
+    }
+  },
+  "GROW": {
+    "TITLE": "Grow Customer Relationships Via Technology Solutions.",
+    "DESC": "We help companies improve operational efficiency, strengthen customer relationships, and achieve long-term success through innovative business strategies.",
+    "RATING_LABEL": "Working Total Rating",
+    "IMG_MEETING_ALT": "Business meeting",
+    "IMG_PROFESSIONAL_ALT": "Business professional",
+    "ACCORDION": {
+      "ITEM1": {
+        "TITLE": "The Ultimate Guide To Solve Your Problem.",
+        "CONTENT": "We help businesses develop effective strategies, improve operations, and create sustainable growth plans tailored to their goals."
+      },
+      "ITEM2": {
+        "TITLE": "How To Improve IT Solution Service.",
+        "CONTENT": "Our financial experts provide professional guidance to improve budgeting, forecasting, and long-term financial performance."
+      },
+      "ITEM3": {
+        "TITLE": "Your Business Into The Ground.",
+        "CONTENT": "We support companies with innovative technology solutions that improve productivity, efficiency, and customer experience."
+      }
+    }
+  },
+  "TESTIMONIAL": {
+    "TITLE": "What Our Clients Say About NovaEdge Service",
+    "QUOTE": "NovaEdge helped us transform our business strategy and improve operational performance. Their consulting expertise delivered measurable results and real growth.",
+    "AUTHOR_NAME": "David Richerd Doe",
+    "AUTHOR_ROLE": "Travel Agent",
+    "IMG_ALT": "Client portrait"
+  }
+}

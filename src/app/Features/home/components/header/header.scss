@@ -150,7 +150,7 @@ $font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 // =============================================
-// HEADER ACTIONS — includes theme toggle slot
+// HEADER ACTIONS
 // =============================================
 .header-actions {
   display: flex; align-items: center; gap: 14px;
@@ -224,10 +224,17 @@ $font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
   }
 
-  .mobile-socials {
-    display: flex; gap: 18px;
+  // الـ row اللي فيها الـ socials + theme toggle + lang switcher في الموبايل
+  .mobile-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 12px 24px 20px;
     border-top: 1px solid var(--bizi-border-subtle);
+  }
+
+  .mobile-socials {
+    display: flex; gap: 18px;
 
     a {
       color: var(--bizi-text-white); opacity: 0.7;
@@ -235,6 +242,13 @@ $font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
       svg { width: 18px; height: 18px; }
       &:hover { opacity: 1; }
     }
+  }
+
+  // ✅ wrapper يجمع theme toggle + lang switcher في الموبايل
+  .mobile-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
 }
 

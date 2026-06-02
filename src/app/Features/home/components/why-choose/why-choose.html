@@ -3,12 +3,12 @@
      ============================================= -->
 <section class="reasons-section">
   <div class="container">
-    <h3 class="reasons-title">Best Reasone For Choose<br>Our Service</h3>
+    <h3 class="reasons-title">{{ 'WHY_CHOOSE.REASONS_TITLE' | translate }}</h3>
 
     <div class="reasons-grid">
       <div class="reason-item" *ngFor="let item of reasons; let last = last">
         <div class="reason-icon" [innerHTML]="item.icon"></div>
-        <p class="reason-text">{{ item.title }}</p>
+        <p class="reason-text">{{ item.titleKey | translate }}</p>
         <div class="reason-divider" *ngIf="!last"></div>
       </div>
     </div>
@@ -21,20 +21,17 @@
 <section class="case-studies-section">
   <div class="container">
     <div class="case-header">
-      <h2 class="case-title">
-        We Have Done The Works,<br>Recent Case Studies
-      </h2>
-      <a href="#" class="btn-primary">More Case Studies <span>›</span></a>
+      <h2 class="case-title">{{ 'WHY_CHOOSE.CASE_TITLE' | translate }}</h2>
+      <a href="#" class="btn-primary">{{ 'WHY_CHOOSE.MORE_CASES' | translate }} <span>›</span></a>
     </div>
 
-    <!-- Cards داخل الـ container عشان فيها مسافة من الجنبين -->
     <div class="case-grid">
       <div class="case-card" *ngFor="let study of caseStudies">
-        <img [src]="study.image" [alt]="study.title" class="case-img" loading="lazy">
+        <img [src]="study.image" [alt]="study.titleKey | translate" class="case-img" loading="lazy">
         <div class="case-overlay"></div>
         <div class="case-content">
-          <span class="case-category">{{ study.category }}</span>
-          <h4 class="case-card-title">{{ study.title }}</h4>
+          <span class="case-category">{{ study.categoryKey | translate }}</span>
+          <h4 class="case-card-title">{{ study.titleKey | translate }}</h4>
         </div>
       </div>
     </div>

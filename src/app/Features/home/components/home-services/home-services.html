@@ -4,14 +4,8 @@
 <section class="invest-section">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">
-        Invest in Our Company and Have<br class="hide-mobile"> Healthy Profits for Long Term
-      </h2>
-      <p class="section-desc">
-        We provide strategic guidance and innovative business solutions
-        to help companies improve performance, increase profitability,
-        and achieve sustainable growth.
-      </p>
+      <h2 class="section-title">{{ 'HOME_SERVICES.INVEST_TITLE' | translate }}</h2>
+      <p class="section-desc">{{ 'HOME_SERVICES.INVEST_DESC' | translate }}</p>
     </div>
 
     <!-- Service Cards -->
@@ -20,15 +14,15 @@
         <div class="card-top">
           <div class="card-icon-row">
             <span class="card-icon" [innerHTML]="card.icon"></span>
-            <h6 class="card-title">{{ card.title }}</h6>
+            <h6 class="card-title">{{ card.titleKey | translate }}</h6>
           </div>
-          <p class="card-desc">{{ card.description }}</p>
+          <p class="card-desc">{{ card.descKey | translate }}</p>
         </div>
         <div class="card-image-wrap">
-          <img [src]="card.image" [alt]="card.title" class="card-img" loading="lazy">
+          <img [src]="card.image" [alt]="card.titleKey | translate" class="card-img" loading="lazy">
         </div>
         <div class="card-footer">
-          <a href="#" class="card-link">Discover More <span>›</span></a>
+          <a href="#" class="card-link">{{ 'HOME_SERVICES.DISCOVER_MORE' | translate }} <span>›</span></a>
         </div>
       </div>
     </div>
@@ -42,14 +36,11 @@
   <div class="container">
     <div class="offer-header">
       <div class="offer-header__left">
-        <h3 class="offer-title">What We Offer For You</h3>
-        <p class="offer-desc">
-           Our expert consultants help businesses overcome challenges,
-          optimize operations, and create strategies for long-term success.
-        </p>
+        <h3 class="offer-title">{{ 'HOME_SERVICES.OFFER_TITLE' | translate }}</h3>
+        <p class="offer-desc">{{ 'HOME_SERVICES.OFFER_DESC' | translate }}</p>
       </div>
       <div class="offer-header__right">
-        <a href="#" class="btn-primary">More Service <span>›</span></a>
+        <a href="#" class="btn-primary">{{ 'HOME_SERVICES.MORE_SERVICE' | translate }} <span>›</span></a>
       </div>
     </div>
 
@@ -57,8 +48,8 @@
       <div class="offer-item" *ngFor="let item of offerItems">
         <div class="offer-icon" [innerHTML]="item.icon"></div>
         <div class="offer-content">
-          <h6 class="offer-item-title">{{ item.title }}</h6>
-          <p class="offer-item-desc">{{ item.description }}</p>
+          <h6 class="offer-item-title">{{ item.titleKey | translate }}</h6>
+          <p class="offer-item-desc">{{ item.descKey | translate }}</p>
         </div>
       </div>
     </div>

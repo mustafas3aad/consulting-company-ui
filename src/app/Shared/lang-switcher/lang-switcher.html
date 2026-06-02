@@ -1,0 +1,4 @@
+<button class="lang-btn" (click)="switchLang()" [attr.aria-label]="isArabic ? 'Switch to English' : 'التبديل للعربية'">
+  <span class="lang-flag">{{ isArabic ? '🇬🇧' : '🇪🇬' }}</span>
+  <span class="lang-text">{{ isArabic ? 'EN' : 'AR' }}</span>
+</button>

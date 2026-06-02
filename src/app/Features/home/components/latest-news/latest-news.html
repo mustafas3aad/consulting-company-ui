@@ -3,24 +3,17 @@
 
     <!-- Header -->
     <div class="news-header">
-      <h2 class="news-title">Our Latest News</h2>
-      <p class="news-subtitle">
-        Stay updated with the latest business strategies, market trends,
-        and expert insights designed to help companies grow and succeed.
-      </p>
+      <h2 class="news-title">{{ 'LATEST_NEWS.TITLE' | translate }}</h2>
+      <p class="news-subtitle">{{ 'LATEST_NEWS.SUBTITLE' | translate }}</p>
     </div>
 
     <!-- Cards Grid -->
     <div class="news-grid">
       <div class="news-card" *ngFor="let card of newsCards">
 
-        <!-- Background Image -->
-        <img [src]="card.image" [alt]="card.title" class="card-bg-image" />
-
-        <!-- Dark overlay -->
+        <img [src]="card.image" [alt]="card.titleKey | translate" class="card-bg-image" />
         <div class="card-overlay"></div>
 
-        <!-- Author Info (top) -->
         <div class="card-author">
           <img [src]="card.authorAvatar" [alt]="card.authorName" class="author-avatar" />
           <div class="author-info">
@@ -29,10 +22,9 @@
           </div>
         </div>
 
-        <!-- Bottom Content -->
         <div class="card-bottom">
-          <span class="card-category">{{ card.category }}</span>
-          <h3 class="card-title">{{ card.title }}</h3>
+          <span class="card-category">{{ card.categoryKey | translate }}</span>
+          <h3 class="card-title">{{ card.titleKey | translate }}</h3>
         </div>
 
       </div>
