@@ -207,15 +207,13 @@ $font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: var(--bizi-bg-navy);
   overflow: hidden;
   position: relative;
-  min-height: 420px;
+  min-height: 280px;
 }
 
 .testimonial-container {
   max-width: 1200px;
   margin: 0 auto;
-
-  padding: 48px 40px;
-
+  padding: 0 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -223,7 +221,7 @@ $font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   @media (max-width: 900px) {
     flex-direction: column;
-    padding: 40px 24px;
+    padding: 24px;
   }
 
   [dir="rtl"] & {
@@ -239,23 +237,23 @@ $font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
   flex: 1;
   position: relative;
   z-index: 2;
+  padding: 24px 0;
 }
 
 .testimonial-title {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .quote-text {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   font-style: italic;
-  line-height: 1.9;
-  color: rgba(255,255,255,0.82);
-
-  margin: 16px 0 24px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 10px 0 16px;
 }
 
 .testimonial-author {
@@ -265,14 +263,13 @@ $font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .author-avatar {
-  width: 54px;
-  height: 54px;
-  min-width: 54px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
-
-  border: 2px solid rgba(255,255,255,0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .author-info {
@@ -281,38 +278,45 @@ $font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .author-name {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   color: #fff;
 }
 
 .author-role {
-  font-size: 13px;
-  color: rgba(255,255,255,0.65);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .testimonial-image-wrapper {
   flex: 1;
-
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  align-self: stretch;
+
+  @media (max-width: 900px) {
+    align-self: center;
+    justify-content: center;
+    margin-top: 16px;
+  }
 }
 
 .testimonial-bg-img {
   width: 100%;
-  max-width: 420px;
-
-  object-fit: contain;
-
-  opacity: 0.25;
+  max-width: 380px;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.75;
+  mix-blend-mode: luminosity;
   display: block;
 
   [data-theme="dark"] & {
-    opacity: 0.18;
+    opacity: 0.55;
   }
 
   @media (max-width: 900px) {
-    max-width: 320px;
+    max-width: 240px;
+    height: auto;
   }
 }

@@ -1,21 +1,18 @@
-import { ConsultationService } from './../../../../Core/Services/Consultation/consultation-service';
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, inject, DestroyRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  ReactiveFormsModule,
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+
+import { ConsultationService } from './../../../../Core/Services/Consultation/consultation-service';
 import { ServiceDto } from '../../../../Core/Models/ServiceModels/service-dto';
 import { ServiceService } from '../../../../Core/Services/ServiceService/service-service';
 import { ToastService } from '../../../../Core/Services/Toast/toast-service';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 interface Stat {
   number: string;
-  label:  string;
-  desc:   string;
+  label: string;
+  desc: string;
 }
 
 @Component({
@@ -26,27 +23,29 @@ interface Stat {
   styleUrls: ['./book-appointment.scss'],
 })
 export class BookAppointmentComponent implements OnInit {
-
   form!: FormGroup;
-  isLoading       = signal(false);
-  services        = signal<ServiceDto[]>([]);
+  isLoading = signal(false);
+  services = signal<ServiceDto[]>([]);
   servicesLoading = signal(false);
+
+  // استخدام الـ DestroyRef لعمل Unsubscribe تلقائي وآمن عند الخروج من الصفحة
+  private destroyRef = inject(DestroyRef);
 
   stats: Stat[] = [
     {
       number: '6847+',
-      label:  'BOOK_APPOINTMENT.STATS.HAPPY_CUSTOMERS.LABEL',
-      desc:   'BOOK_APPOINTMENT.STATS.HAPPY_CUSTOMERS.DESC',
+      label: 'BOOK_APPOINTMENT.STATS.HAPPY_CUSTOMERS.LABEL',
+      desc: 'BOOK_APPOINTMENT.STATS.HAPPY_CUSTOMERS.DESC',
     },
     {
       number: '100%',
-      label:  'BOOK_APPOINTMENT.STATS.CLIENTS_SATISFIED.LABEL',
-      desc:   'BOOK_APPOINTMENT.STATS.CLIENTS_SATISFIED.DESC',
+      label: 'BOOK_APPOINTMENT.STATS.CLIENTS_SATISFIED.LABEL',
+      desc: 'BOOK_APPOINTMENT.STATS.CLIENTS_SATISFIED.DESC',
     },
     {
       number: '8504',
-      label:  'BOOK_APPOINTMENT.STATS.PROJECTS_DONE.LABEL',
-      desc:   'BOOK_APPOINTMENT.STATS.PROJECTS_DONE.DESC',
+      label: 'BOOK_APPOINTMENT.STATS.PROJECTS_DONE.LABEL',
+      desc: 'BOOK_APPOINTMENT.STATS.PROJECTS_DONE.DESC',
     },
   ];
 
@@ -60,14 +59,20 @@ export class BookAppointmentComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      fullName:    ['', [Validators.required, Validators.maxLength(150)]],
-      email:       ['', [Validators.required, Validators.email]],
+      fullName: ['', [Validators.required, Validators.maxLength(150)]],
+      email: ['', [Validators.required, Validators.email]],
       companyName: ['', [Validators.required]],
-      message:     [''],
-      serviceId:   [null, [Validators.required]],
+      message: [''],
+      serviceId: [null, [Validators.required]],
     });
 
     this.loadServices();
+
+    this.translate.onLangChange
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(() => {
+        this.loadServices();
+      });
   }
 
   private loadServices(): void {
@@ -83,15 +88,17 @@ export class BookAppointmentComponent implements OnInit {
     });
   }
 
-  get f() { return this.form.controls; }
+  get f() {
+    return this.form.controls;
+  }
 
   onSubmit(): void {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
     }
-    this.isLoading.set(true);
 
+    this.isLoading.set(true);
     this.consultationService.create(this.form.value).subscribe({
       next: () => {
         this.isLoading.set(false);
