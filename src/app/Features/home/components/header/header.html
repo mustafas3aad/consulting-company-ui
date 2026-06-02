@@ -2,7 +2,6 @@
 
   <header class="site-header">
     <nav class="navbar">
-      <!-- Logo -->
       <a href="#" class="logo">
         <div class="logo-icon">
           <span class="logo-b">N</span>
@@ -14,7 +13,6 @@
         <span class="logo-text">NovaEdge</span>
       </a>
 
-      <!-- Desktop Nav -->
       <ul class="nav-menu">
         <li class="nav-item" *ngFor="let item of navItems"
           (mouseenter)="toggleDropdown(item.labelKey)"
@@ -34,7 +32,6 @@
         </li>
       </ul>
 
-      <!-- Header Actions -->
       <div class="header-actions">
         <a href="#" class="social-icon" aria-label="Facebook">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
@@ -55,23 +52,31 @@
         <app-lang-switcher />
       </div>
 
-      <!-- Hamburger -->
       <button class="hamburger" [class.is-open]="mobileMenuOpen()" (click)="toggleMobileMenu()" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
     </nav>
 
-    <!-- Mobile Menu -->
     <div class="mobile-menu" [class.open]="mobileMenuOpen()">
       <ul>
-        <li *ngFor="let item of navItems"><a href="#">{{ item.labelKey | translate }}</a></li>
+        <li *ngFor="let item of navItems" class="mobile-nav-item">
+          <a href="javascript:void(0)" class="mobile-nav-link" (click)="item.hasDropdown ? toggleDropdown(item.labelKey) : null" [class.has-dropdown]="item.hasDropdown">
+            {{ item.labelKey | translate }}
+            <span class="mobile-chevron" *ngIf="item.hasDropdown" [class.rotated]="activeDropdown() === item.labelKey">›</span>
+          </a>
+
+          <div class="mobile-dropdown" *ngIf="item.hasDropdown && activeDropdown() === item.labelKey">
+            <a href="#" class="mobile-dropdown-item">{{ 'HEADER.DROPDOWN.OPTION1' | translate }}</a>
+            <a href="#" class="mobile-dropdown-item">{{ 'HEADER.DROPDOWN.OPTION2' | translate }}</a>
+            <a href="#" class="mobile-dropdown-item">{{ 'HEADER.DROPDOWN.OPTION3' | translate }}</a>
+          </div>
+        </li>
       </ul>
       <div class="mobile-bottom">
         <div class="mobile-socials">
           <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
           <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg></a>
         </div>
-        <!-- ✅ theme toggle + lang switcher معاً في الموبايل -->
         <div class="mobile-controls">
           <app-theme-toggle />
           <app-lang-switcher />
@@ -80,7 +85,6 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
