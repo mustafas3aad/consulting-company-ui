@@ -1,3 +1,4 @@
 export const environment = {
-  apiUrl: 'http://novaedge.runasp.net/api/v1'
+  production: true,
+  apiUrl: 'https://novaedge.runasp.net/api/v1'
 };
