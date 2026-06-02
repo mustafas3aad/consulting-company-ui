@@ -2,7 +2,7 @@ import { CreateConsultationRequestDto } from './../../Models/Consultation/create
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Consultations } from '../../../core/constants/Api_Urls';
+import { Consultations } from '../../Constants/api-urls';
 
 
 @Injectable({ providedIn: 'root' })

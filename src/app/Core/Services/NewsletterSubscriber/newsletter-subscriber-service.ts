@@ -2,7 +2,7 @@ import { CreateNewsletterSubscriberDto } from './../../Models/Subscriber/create-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { NewsletterSubscribers } from '../../../core/constants/Api_Urls';
+import { NewsletterSubscribers } from '../../Constants/api-urls';
 
 
 
