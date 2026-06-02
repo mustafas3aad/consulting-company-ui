@@ -1,5 +1,5 @@
 // =============================================
-// BiziCorp Header & Hero — Dark Mode Ready
+// Header & Hero — Dark Mode Ready
 // header-hero.component.scss
 // =============================================
 
@@ -224,7 +224,7 @@ $font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
   }
 
-  // الـ row اللي فيها الـ socials + theme toggle + lang switcher في الموبايل
+
   .mobile-bottom {
     display: flex;
     align-items: center;
@@ -244,7 +244,6 @@ $font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
   }
 
-  // ✅ wrapper يجمع theme toggle + lang switcher في الموبايل
   .mobile-controls {
     display: flex;
     align-items: center;
