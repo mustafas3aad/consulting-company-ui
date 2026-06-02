@@ -1,23 +1,22 @@
 <section class="grow-section">
 
-  <!-- الـ overlay على كامل الـ section -->
   <div class="grow-overlay"></div>
 
   <!-- LEFT — Stats -->
   <div class="grow-left">
     <div class="grow-content">
 
-      <h2 class="grow-title">We Can Help You To Grow<br>Your Business</h2>
+      <h2 class="grow-title">{{ 'BOOK_APPOINTMENT.TITLE' | translate }}</h2>
 
       <div class="stats">
-        <div class="stat-row" *ngFor="let stat of stats">
-          <div class="stat-left">
-            <span class="stat-number">{{ stat.number }}</span>
-            <span class="stat-label">{{ stat.label }}</span>
-          </div>
-          <div class="stat-divider"></div>
-          <p class="stat-desc">{{ stat.desc }}</p>
-        </div>
+       <div class="stat-row" *ngFor="let stat of stats">
+  <div class="stat-left">
+    <span class="stat-number">{{ stat.number }}</span>
+    <span class="stat-label">{{ stat.label | translate }}</span>
+  </div>
+  <div class="stat-divider"></div>
+  <p class="stat-desc">{{ stat.desc | translate }}</p>
+</div>
       </div>
 
     </div>
@@ -26,34 +25,37 @@
   <!-- RIGHT — Form -->
   <div class="grow-right">
     <div class="form-card">
-      <p class="form-sub">Free Consultation</p>
-      <h3 class="form-title">Book Appointment</h3>
+      <p class="form-sub">{{ 'BOOK_APPOINTMENT.FREE_CONSULTATION' | translate }}</p>
+      <h3 class="form-title">{{ 'BOOK_APPOINTMENT.FORM_TITLE' | translate }}</h3>
 
       <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
 
         <div class="field-group">
-          <input type="text" formControlName="fullName" placeholder="Name"
+          <input type="text" formControlName="fullName"
+            [placeholder]="'BOOK_APPOINTMENT.FORM.NAME_PLACEHOLDER' | translate"
             [class.is-invalid]="isInvalid('fullName')" />
           <div class="error-msg" *ngIf="isInvalid('fullName')">
-            <span *ngIf="f['fullName'].errors?.['required']">Name is required.</span>
-            <span *ngIf="f['fullName'].errors?.['maxlength']">Max 150 characters.</span>
+            <span *ngIf="f['fullName'].errors?.['required']">{{ 'BOOK_APPOINTMENT.ERRORS.NAME_REQUIRED' | translate }}</span>
+            <span *ngIf="f['fullName'].errors?.['maxlength']">{{ 'BOOK_APPOINTMENT.ERRORS.NAME_MAX' | translate }}</span>
           </div>
         </div>
 
         <div class="field-group">
-          <input type="email" formControlName="email" placeholder="Email"
+          <input type="email" formControlName="email"
+            [placeholder]="'BOOK_APPOINTMENT.FORM.EMAIL_PLACEHOLDER' | translate"
             [class.is-invalid]="isInvalid('email')" />
           <div class="error-msg" *ngIf="isInvalid('email')">
-            <span *ngIf="f['email'].errors?.['required']">Email is required.</span>
-            <span *ngIf="f['email'].errors?.['email']">Enter a valid email.</span>
+            <span *ngIf="f['email'].errors?.['required']">{{ 'BOOK_APPOINTMENT.ERRORS.EMAIL_REQUIRED' | translate }}</span>
+            <span *ngIf="f['email'].errors?.['email']">{{ 'BOOK_APPOINTMENT.ERRORS.EMAIL_INVALID' | translate }}</span>
           </div>
         </div>
 
         <div class="field-group">
-          <input type="text" formControlName="companyName" placeholder="Company Name"
+          <input type="text" formControlName="companyName"
+            [placeholder]="'BOOK_APPOINTMENT.FORM.COMPANY_PLACEHOLDER' | translate"
             [class.is-invalid]="isInvalid('companyName')" />
           <div class="error-msg" *ngIf="isInvalid('companyName')">
-            <span *ngIf="f['companyName'].errors?.['required']">Company Name is required.</span>
+            <span *ngIf="f['companyName'].errors?.['required']">{{ 'BOOK_APPOINTMENT.ERRORS.COMPANY_REQUIRED' | translate }}</span>
           </div>
         </div>
 
@@ -64,7 +66,7 @@
                     [class.placeholder-selected]="!form.value.serviceId"
                     [attr.disabled]="servicesLoading() ? true : null">
               <option [ngValue]="null" disabled>
-                {{ servicesLoading() ? 'Loading services...' : 'Select a Service' }}
+                {{ servicesLoading() ? ('BOOK_APPOINTMENT.FORM.LOADING_SERVICES' | translate) : ('BOOK_APPOINTMENT.FORM.SELECT_SERVICE' | translate) }}
               </option>
               <option *ngFor="let service of services()" [ngValue]="service.id">
                 {{ service.name }}
@@ -80,16 +82,18 @@
             </span>
           </div>
           <div class="error-msg" *ngIf="isInvalid('serviceId')">
-            <span *ngIf="f['serviceId'].errors?.['required']">Please select a service.</span>
+            <span *ngIf="f['serviceId'].errors?.['required']">{{ 'BOOK_APPOINTMENT.ERRORS.SERVICE_REQUIRED' | translate }}</span>
           </div>
         </div>
 
         <div class="field-group">
-          <textarea formControlName="message" placeholder="Message" rows="5"></textarea>
+          <textarea formControlName="message"
+            [placeholder]="'BOOK_APPOINTMENT.FORM.MESSAGE_PLACEHOLDER' | translate"
+            rows="5"></textarea>
         </div>
 
         <button type="submit" class="submit-btn" [disabled]="isLoading()">
-          <span *ngIf="!isLoading()">Submit Now</span>
+          <span *ngIf="!isLoading()">{{ 'BOOK_APPOINTMENT.FORM.SUBMIT' | translate }}</span>
           <span *ngIf="isLoading()" class="spinner"></span>
         </button>
 

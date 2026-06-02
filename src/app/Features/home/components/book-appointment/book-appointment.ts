@@ -10,8 +10,7 @@ import {
 import { ServiceDto } from '../../../../Core/Models/ServiceModels/service-dto';
 import { ServiceService } from '../../../../Core/Services/ServiceService/service-service';
 import { ToastService } from '../../../../Core/Services/Toast/toast-service';
-
-
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 interface Stat {
   number: string;
@@ -22,7 +21,7 @@ interface Stat {
 @Component({
   selector: 'app-book-appointment',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './book-appointment.html',
   styleUrls: ['./book-appointment.scss'],
 })
@@ -36,18 +35,18 @@ export class BookAppointmentComponent implements OnInit {
   stats: Stat[] = [
     {
       number: '6847+',
-      label:  'Happy Customers',
-      desc:   'We have helped hundreds of businesses improve operations, increase profitability, and achieve sustainable growth.',
+      label:  'BOOK_APPOINTMENT.STATS.HAPPY_CUSTOMERS.LABEL',
+      desc:   'BOOK_APPOINTMENT.STATS.HAPPY_CUSTOMERS.DESC',
     },
     {
       number: '100%',
-      label:  'Clients Satisfied',
-      desc:   'Our consulting solutions are designed to deliver measurable results and long-term business success.',
+      label:  'BOOK_APPOINTMENT.STATS.CLIENTS_SATISFIED.LABEL',
+      desc:   'BOOK_APPOINTMENT.STATS.CLIENTS_SATISFIED.DESC',
     },
     {
       number: '8504',
-      label:  'Projects Done',
-      desc:    'From business strategy to digital transformation, we deliver tailored consulting solutions across industries.',
+      label:  'BOOK_APPOINTMENT.STATS.PROJECTS_DONE.LABEL',
+      desc:   'BOOK_APPOINTMENT.STATS.PROJECTS_DONE.DESC',
     },
   ];
 
@@ -55,7 +54,8 @@ export class BookAppointmentComponent implements OnInit {
     private fb: FormBuilder,
     private consultationService: ConsultationService,
     private serviceService: ServiceService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private translate: TranslateService
   ) {}
 
   ngOnInit(): void {
@@ -95,13 +95,15 @@ export class BookAppointmentComponent implements OnInit {
     this.consultationService.create(this.form.value).subscribe({
       next: () => {
         this.isLoading.set(false);
-        this.toastService.success('Your request has been submitted successfully!');
+        this.toastService.success(
+          this.translate.instant('BOOK_APPOINTMENT.TOAST.SUCCESS')
+        );
         this.form.reset({ serviceId: null });
       },
       error: (err) => {
         this.isLoading.set(false);
         this.toastService.error(
-          err?.error?.detail ?? 'Something went wrong. Please try again.'
+          err?.error?.detail ?? this.translate.instant('BOOK_APPOINTMENT.TOAST.ERROR')
         );
       },
     });
