@@ -5,7 +5,7 @@ import { ServiceQueryParams } from './../../Models/ServiceModels/service-query-p
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ServicesApi } from '../../../core/constants/Api_Urls';
+import { ServicesApi } from '../../Constants/api-urls';
 
 
 
